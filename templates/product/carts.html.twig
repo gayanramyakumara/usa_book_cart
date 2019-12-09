@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book Store : Home page!{% endblock %}
+
+{% block body %}
+
+    <!-- **** CONRAINER MAIN ROW ****-->
+
+{% set totalByCategory = 0 %}
+
+ 
+    <div class="row">
+
+        <div id="basket" class="col-lg-9">
+            <div class="box">
+            <form method="post" action="checkout1.html">
+                <h1>Shopping cart</h1> 
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th colspan="2">Product</th>
+                        <th>Quantity</th>
+                        <th>Unit price</th>
+                        <th>Discount</th>
+                        <th colspan="2">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for key, item in cartData %} 
+                        {% for value  in item %} 
+                        
+                        {% set totalByCategory = totalByCategory + value.totalByCategory %}
+                        
+                        <tr>
+                            <td><a href="#"><img src="{{value.bookImgPath}}" alt=" "></a></td>
+                            <td><a href="#">{{value.bookName}} </a></td>
+                            <td>
+                            <input type="number" value="{{value.bookCount}}" disabled class="form-control">
+                            </td>
+                            <td>$ {{value.bookPrice|number_format(2)}}</td>
+                            <td>${{value.discount |number_format(2)}}</td>
+                            <td>${{value.totalByCategory |number_format(2)}}</td>
+                            <td><a href="delete_item/{{value.cartId}}" ><i class="fa fa-trash-o"></i></a></td>
+                        </tr>
+                        {% endfor %} 
+                    {% endfor %}
+                
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="5">Total</th>
+                        <th colspan="2">${{totalByCategory|number_format(2)}}</th>
+                    </tr>
+                    </tfoot>
+                </table>
+                </div>
+                <!-- /.table-responsive-->
+                <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
+                <div class="left"><a href="/" class="btn btn-outline-secondary"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
+                <div class="right">
+                 
+                    <a  href="/checkout"  class="btn btn-primary {% if cartData.itemInfo | length == 0  %} disabled {% endif%}">Proceed to checkout <i class="fa fa-chevron-right"></i></a>
+                </div>
+                </div>
+            </form>
+            </div>
+            <!-- /.box-->
+            
+        </div>
+        <!-- /.col-lg-9-->
+        <div class="col-lg-3">
+
+            <div id="order-summary" class="box">
+            <div class="box-header">
+                <h3 class="mb-0">Order summary</h3>
+            </div>
+            <p class="text-muted">
+                Shipping and additional costs are calculated based on the values you have entered.
+            </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Subtotal </td>
+                            <th>$ {{totalByCategory|number_format(2)}}</th>
+                        </tr> 
+                        <tr>
+                            <td>Additional discount (5%) </td>
+                            {% set additionalDis = (totalByCategory * additionalDiscount / 100) |number_format(2) %}
+                            <th>$ {{additionalDis}}</th>
+                        </tr> 
+                        <tr>
+                            <td>Coupon discount (15%) </td>
+ 
+                            {% set couponDis = (totalAmount * couponDiscount / 100) |number_format(2) %}
+                            <th>$ {{couponDis }}</th>
+                        </tr> 
+
+                        <tr>
+                            <td>Children discount (15%) </td>
+ 
+                            <th>$ {{childDiscount }}</th>
+                        </tr> 
+
+                        <tr class="total">
+                            <td>Total</td>
+                            {% if  couponDis != 0 %} 
+                                <th>${{totalAmount - couponDis| number_format(2)}}</th>
+                            {% else %} 
+                                <th>${{totalByCategory - additionalDis| number_format(2)}}</th>
+                            {% endif %}
+                        
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            
+        </div>
+        <!-- /.col-md-3-->
+    </div>
+
+    <!-- **** CONRAINER MAIN ROW END****-->
+
+
+{% endblock %}

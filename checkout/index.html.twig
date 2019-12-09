@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CheckoutController!{% endblock %}
+
+{% block body %}
+
+
+<div class="row">
+
+
+
+<div id="basket" class="col-lg-9">
+            <div class="box">
+            <form method="post" action="checkout1.html">
+                <h1>Invoice</h1> 
+                <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th colspan="2">Product</th>
+                        <th>Quantity</th>
+                        <th>Unit price</th>
+                        {# <th>Discount</th> #}
+                        <th colspan="2">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                        {% for item in invoice.invoiceItem %} 
+                         
+                        <tr>
+                            <td><a href="#"><img src="{{item.bookId.imagePath}}" alt=" "></a></td>
+                            <td><a href="#">{{ item.bookId.bookName}}</a></td>
+                            <td>
+                            <input type="number" value="{{ item.count}}" disabled class="form-control">
+                            </td>
+                            <td>$ {{ item.bookId.price}}</td>
+                            {# <td>${{ item}}</td> #}
+                            <td>$ {{ item.bookId.price * item.count }}</td>
+                        </tr>
+                        {% endfor %} 
+                
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="4">Total</th>
+                        <th colspan="2">${{invoice.total}}</th>
+                    </tr>
+                    </tfoot>
+                </table>
+                </div>
+                <!-- /.table-responsive-->
+                <div class="box-footer d-flex justify-content-between flex-column flex-lg-row">
+                 <div class="right">
+          
+                    <a  href="{{path('pay_now')}}"  class="btn btn-primary">Pay Now <i class="fa fa-chevron-right"></i></a>
+                </div>
+                </div>
+            </form>
+            </div>
+            <!-- /.box-->
+            
+        </div>
+
+
+
+ 
+
+<!-- /.col-lg-9-->
+        <div class="col-lg-3">
+
+
+            <div class="box">
+                <div class="box-header">
+                    <h4 class="mb-0">Coupon code</h4>
+                </div>
+                <p class="text-muted">If you have a coupon code, please enter it in the box below.</p>
+                <form  method="POST" action="{{path('redeem')}}">
+                    <div class="input-group">
+                   
+                        <input type="text" class="form-control" name="couponCode"><span class="input-group-append">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-gift"></i> Redeem and pay</button></span>
+                     
+                    </div>
+                    <!-- /input-group-->
+                </form>
+                </div>
+
+
+
+            <div id="order-summary" class="box">
+            <div class="box-header">
+                <h3 class="mb-0">Order summary</h3>
+            </div>
+            <p class="text-muted">
+                Shipping and additional costs are calculated based on the values you have entered.
+            </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Subtotal </td>
+                            <th>$ {{invoice.subTotal}}</th>
+                        </tr> 
+                        <tr>
+                            <td>Additional discount (5%) </td> 
+                            <th>$ {{invoice.additionalDiscount}}</th>
+                        </tr> 
+                        
+                        <tr>
+                            <td>Coupon discount (15%) </td>
+                            <th>$ {{invoice.couponDiscount}}</th>
+                        </tr> 
+
+                        <tr class="total">
+                            <td>Total</td>
+                            <th>${{invoice.total}}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            
+        </div>
+        <!-- /.col-md-3-->
+</div>
+{% endblock %}

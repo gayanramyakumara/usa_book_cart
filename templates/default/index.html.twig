@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book Store : Home page!{% endblock %}
+
+{% block body %}
+
+        <div class="row">
+
+            <div class="col-lg-3">
+
+              <!-- *** MCATEGORIES MENUS *** -->
+              <div class="card sidebar-menu mb-4">
+                <div class="card-header">
+                  <h3 class="h4 card-title">Categories</h3>
+                </div>
+                <div class="card-body">
+                  <ul class="nav nav-pills flex-column category-menu">
+                    <li>
+                      
+                      <ul class="list-unstyled">
+                       <li><a href="{{path('index') }}" class="nav-link">All</a></li> 
+                      {% for categoryValue in categoryItem %}
+                        <li><a href="{{path('category', {id:categoryValue.id }) }}" class="nav-link">{{ categoryValue.categoryName }}</a></li> 
+                      {% endfor %}
+                      </ul>
+                    </li>
+                 
+                  </ul>
+                </div>
+              </div>
+               
+              <!-- *** CATEGORIES MENUS END ***-->
+            </div>
+            <div class="col-lg-9">
+            
+              <!-- *** ROW PRODUCTS *** -->
+
+
+              <div class="row products">
+
+                <!-- *** PRODUCTS LIST *** -->
+
+                {% for book_item_value in data %}
+   
+                  <div class="col-lg-4 col-md-6">
+                    <div class="product">
+                      <div class="flip-container">
+                        <div class="flipper">
+                          <div class="front"><a href="#"><img src="{{ book_item_value.imagePath }}" alt="" class="img-fluid"></a></div>
+                          {# <div class="back"><a href="detail.html"><img src="img/product1_2.jpg" alt="" class="img-fluid"></a></div> #}
+                        </div>
+                      </div>
+                      <a href="detail.html" class="invisible">
+                      <img src="{{ book_item_value.imagePath }}" alt="" class="img-fluid" style = "heigth:200px" >
+                      </a>
+                      <div class="text">
+                        <h3><a href="#"> {{ book_item_value.bookName }} </a></h3>
+                         <h3 class="price">  Category :  {{book_item_value.categoryId.categoryName}}  </h3>
+                        <p class="price"> 
+                          <del></del>$ {{ book_item_value.price }}
+                        </p>
+                        <p class="buttons"> 
+
+                          <a href="/update_cart/{{ book_item_value.id }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        </p>
+                      </div>
+                      <!-- /.text-->
+                    </div>
+                    <!-- /.product            -->
+                  </div> 
+                {% endfor %}
+                <!-- *** PRODUCTS LIST END *** -->
+                
+              </div>
+
+              <!-- *** ROW PRODUCTS END *** -->
+
+               
+            </div>
+            <!-- /.col-lg-9-->
+          </div>
+
+
+
+{% endblock %}
