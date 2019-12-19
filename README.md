@@ -28,6 +28,12 @@ Add sample data to the database
 ```php
 php bin/console doctrine:fixtures:load --append
 ```
+
+Run project
+
+```php
+symfony server:start
+```
  # Database Structure
  
 ![alt text](https://github.com/gayanramyakumara/book_cart/blob/master/public/database_structure.png)
