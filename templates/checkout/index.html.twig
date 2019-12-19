@@ -25,7 +25,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    
+                     {% if invoice  is not  null %}
                         {% for item in invoice.invoiceItem %} 
                          
                         <tr>
@@ -39,12 +39,14 @@
                             <td>$ {{ item.bookId.price * item.count }}</td>
                         </tr>
                         {% endfor %} 
-                
+                {% endif %} 
                     </tbody>
                     <tfoot>
                     <tr>
                         <th colspan="4">Total</th>
+                         {% if invoice  is not  null %}
                         <th colspan="2">${{invoice.total}}</th>
+                         {% endif %}
                     </tr>
                     </tfoot>
                 </table>
@@ -100,21 +102,29 @@
                     <tbody>
                         <tr>
                             <td>Subtotal </td>
-                            <th>$ {{invoice.subTotal}}</th>
+                             {% if invoice  is not  null %}
+                             <th>$ {{invoice.subTotal}}</th>
+                             {% endif %} 
                         </tr> 
                         <tr>
                             <td>Additional discount (5%) </td> 
+                             {% if invoice  is not  null %}
                             <th>$ {{invoice.additionalDiscount}}</th>
+                             {% endif %} 
                         </tr> 
                         
                         <tr>
                             <td>Coupon discount (15%) </td>
+                             {% if invoice  is not  null %}
                             <th>$ {{invoice.couponDiscount}}</th>
+                             {% endif %} 
                         </tr> 
 
                         <tr class="total">
                             <td>Total</td>
+                             {% if invoice  is not  null %}
                             <th>${{invoice.total}}</th>
+                             {% endif %} 
                         </tr>
                     </tbody>
                 </table>
