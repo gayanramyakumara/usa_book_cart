@@ -30,7 +30,7 @@ class AppFixtures extends Fixture
             'price'=>'35',
             'stock'=>'10',
             'author'=>'karen jones',
-            'imagePath'=>'https://images-eu.ssl-images-amazon.com/images/I/51Blaqtt0WL.jpg',
+            'imagePath'=>'http://images-eu.ssl-images-amazon.com/images/I/51Blaqtt0WL.jpg',
             'categoryId'=>'Children',
            ),
            array(
@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
             'price'=>'30',
             'stock'=>'20',
             'author'=>'karen jones',
-            'imagePath'=>'https://images-eu.ssl-images-amazon.com/images/I/51gHvbCSOOL.jpg',
+            'imagePath'=>'http://images-eu.ssl-images-amazon.com/images/I/51gHvbCSOOL.jpg',
             'categoryId'=>'Fiction',
            ),
            array(
@@ -46,7 +46,7 @@ class AppFixtures extends Fixture
             'price'=>'130',
             'stock'=>'210',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/child/DefendingBoyhood.jpeg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/child/DefendingBoyhood.jpeg',
             'categoryId'=>'Children',
            ),
            array(
@@ -54,7 +54,7 @@ class AppFixtures extends Fixture
             'price'=>'190',
             'stock'=>'32',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/child/civilization.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/child/civilization.jpg',
             'categoryId'=>'Children',
            ),
            array(
@@ -62,7 +62,7 @@ class AppFixtures extends Fixture
             'price'=>'60',
             'stock'=>'10',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/child/ChildrenPictureBooks.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/child/ChildrenPictureBooks.jpg',
             'categoryId'=>'Children',
            ),
            array(
@@ -70,7 +70,7 @@ class AppFixtures extends Fixture
             'price'=>'130',
             'stock'=>'60',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/child/TheLionChildrenBible.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/child/TheLionChildrenBible.jpg',
             'categoryId'=>'Children',
            ),
            array(
@@ -78,7 +78,7 @@ class AppFixtures extends Fixture
             'price'=>'30',
             'stock'=>'20',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/fiction/TheLand_Founding.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/fiction/TheLand_Founding.jpg',
             'categoryId'=>'Fiction',
            ),
            array(
@@ -86,7 +86,7 @@ class AppFixtures extends Fixture
             'price'=>'30',
             'stock'=>'20',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/fiction/udnerw.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/fiction/udnerw.jpg',
             'categoryId'=>'Fiction',
            ),
            array(
@@ -94,7 +94,7 @@ class AppFixtures extends Fixture
             'price'=>'30',
             'stock'=>'20',
             'author'=>'Melissa Sarno',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/fiction/ASwirlofOcean.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/fiction/ASwirlofOcean.jpg',
             'categoryId'=>'Fiction',
            ) ,
            array(
@@ -102,7 +102,7 @@ class AppFixtures extends Fixture
             'price'=>'30',
             'stock'=>'20',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/fiction/Wilburcourtneyseries.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/fiction/Wilburcourtneyseries.jpg',
             'categoryId'=>'Fiction',
            ) ,
            array(
@@ -110,7 +110,7 @@ class AppFixtures extends Fixture
             'price'=>'30',
             'stock'=>'20',
             'author'=>'Anthony Esolen',
-            'imagePath'=>'https://127.0.0.1:8000/img/book/fiction/TheSacredHistory.jpg',
+            'imagePath'=>'http://127.0.0.1:8000/img/book/fiction/TheSacredHistory.jpg',
             'categoryId'=>'Fiction',
            )
         );
